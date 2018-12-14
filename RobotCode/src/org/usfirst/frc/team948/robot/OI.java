@@ -6,7 +6,10 @@
 /*----------------------------------------------------------------------------*/
 
 package org.usfirst.frc.team948.robot;
-import edu.wpi.first.wpilibj.Joystick;;
+import org.usfirst.frc.team948.robot.commands.AutonomousDrive;
+
+import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.Joystick;
 
 /**
@@ -19,6 +22,11 @@ public class OI {
 	public static Joystick	stickleft = new Joystick(0);
 	public static Joystick stickright = new Joystick(1);
 	
+	public static final JoystickButton driveForwardButton = new JoystickButton(stickright, 5);
+	
+	public static void init() {
+		driveForwardButton.whenPressed(new AutonomousDrive());
+	}
 	public static double getLeftJoystickY() {
 		return stickleft.getY();
 	}
